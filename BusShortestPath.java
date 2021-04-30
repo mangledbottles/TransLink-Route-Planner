@@ -36,10 +36,14 @@ public class BusShortestPath {
 		}
 		//read in stop times file
 
-		File stopTimesFile = new File(stop_times);
-		Scanner fileScan = new Scanner(stopTimesFile);
-		Scanner lineScan = null;
-		fileScan.nextLine();
+		try {
+			File stopTimesFile = new File(stop_times);
+			Scanner fileScan = new Scanner(stopTimesFile);
+				Scanner lineScan = null;
+		}
+		 catch(Exception error) {
+							System.out.println("Broken file : " + error.toString());
+					}
 
 		int from = 0;
 		int to = 0;
@@ -83,7 +87,7 @@ public class BusShortestPath {
 			fileScan.nextLine();
 		}
 		 catch(Exception error) {
-	            System.out.println("Its broken.. : " + error.toString());
+	            System.out.println("Broken file : " + error.toString());
 	        }
 
 //		File transfersFile = new File(transfers);
@@ -164,7 +168,6 @@ public class BusShortestPath {
     		VisitedNodes++;
     	}
 
-    	//build the path we took through the graph
     	if(distTo[to] == Double.POSITIVE_INFINITY) {
     		return "not existent";
     	}
