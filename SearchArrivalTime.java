@@ -1,5 +1,10 @@
 import java.io.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
+
 import java.text.*;
 
 public class SearchArrivalTime {
@@ -41,7 +46,7 @@ public class SearchArrivalTime {
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.print(e);
+			System.out.println(e);
 		}
 
 		for (int i = 0; i < trips.size(); i++) {
@@ -52,6 +57,16 @@ public class SearchArrivalTime {
 				Date maxTime = sdf.parse(MAX_TIME);
 				Date time = sdf.parse(t[1]);
 				double ids = Double.parseDouble(t[0]);
+				
+
+				String pattern = "[0-24]:[0-59]:[0-59]";
+				Pattern r = Pattern.compile(pattern);
+				Matcher m = r.matcher(line);
+				if(!m.find()) { 
+					System.out.println("Invalid date");
+					break;
+				} 
+
 				Date inputTime = sdf.parse(input);
 				if (time.getTime() == inputTime.getTime() && time.getTime() < maxTime.getTime()	) {
 					try {
@@ -63,7 +78,7 @@ public class SearchArrivalTime {
 
 				}
 			} catch (Exception e) {
-				System.out.print(e);
+				System.out.println(e);
 			}
 		}
 		searchedTrips.sort(Comparator.naturalOrder());
