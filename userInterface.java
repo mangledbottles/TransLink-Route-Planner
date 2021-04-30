@@ -96,7 +96,7 @@ public class userInterface {
 
     if(validStops != null) {
         for(String key : validStops){
-            System.out.println("" + TST.get(key).printStopSingleLine());
+            System.out.println("" + TST.get(key).printStopLine());
         }
     } else {
         System.out.println("No matching stops were found");
