@@ -21,7 +21,7 @@ public class SearchArrivalTime {
 
 		try{
 			Date maxTime = sdf.parse(MAX_TIME);
-			BufferedReader br = new BufferedReader(new FileReader("stop_times.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("inputs/stop_times.txt"));
 			br.readLine();
 			String line;
 	        while ((line = br.readLine()) != null) {
