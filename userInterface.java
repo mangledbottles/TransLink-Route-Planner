@@ -73,7 +73,6 @@ public class userInterface {
           String timeIn = input.nextLine();
           String item = input.next();
           findArrivalTime(item);
-          // TODO: error check time format
         }
         else {
           System.out.println("Invalid input provided.");
@@ -85,7 +84,7 @@ public class userInterface {
 
   // Implementation of findShortestPath class
   private static void findShortestPath(int stopA, int stopB) {
-    BusShortestPath shortest = new BusShortestPath();
+    BusShortestPath shortest = new BusShortestPath("./inputs/stop_times.txt", "./inputs/transfers");
     shortest.findShortDistance(stopA, stopB);
   }
 
