@@ -84,8 +84,9 @@ public class userInterface {
 
   // Implementation of findShortestPath class
   private static void findShortestPath(int stopA, int stopB) {
-    BusShortestPath shortest = new BusShortestPath("./inputs/stop_times.txt", "./inputs/transfers");
-    shortest.findShortDistance(stopA, stopB);
+    BusShortestPath shortest = new BusShortestPath("./inputs/stop_times.txt", "./inputs/transfers.txt");
+    String shortestDist = shortest.findShortDistance(stopA, stopB);
+    System.out.println(shortestDist.toString());
   }
 
   // Implementation of findStopInformation class

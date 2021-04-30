@@ -1,30 +1,10 @@
 import java.io.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-
 import java.text.*;
 
 public class SearchArrivalTime {
 	
 	public static final String MAX_TIME = "24:00:00";
-
-	// public static void main(String[] args) {
-	// 	System.out.println("Enter arrival time (hh:mm:ss)");
-	// 	Scanner input = new Scanner(System.in);
-	// 	String item = input.next();
-
-	// 	ArrayList<String> list = parseFile(item);
-	// 	if (!list.isEmpty()) {
-	// 		for (int i = 0; i < list.size(); i++) {
-	// 			System.out.println(list.get(i));
-	// 		}
-	// 	} else {
-	// 		System.out.println("There are no trips that match your search.");
-	// 	}
-	// }
 
 	public static ArrayList<String> parseFile(String input) {
 

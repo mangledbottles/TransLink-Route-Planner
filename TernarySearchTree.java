@@ -125,9 +125,6 @@ public class TernarySearchTree {
         collect(x.right, prefix, queue);
     }
 }
-
-
-
 class Stop {
     public int stopId;
     public String stopName, stopDesc;
