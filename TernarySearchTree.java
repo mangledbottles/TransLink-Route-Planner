@@ -14,14 +14,14 @@ public class TernarySearchTree {
         private Node left, mid, right;      // left, middle, and right subtries
         private Stop val;                   // value associated with string
     }
-    public static void main(String[] args) {
-        TernarySearchTree TST = new TernarySearchTree("./inputs/stops.txt");
+    // public static void main(String[] args) {
+    //     TernarySearchTree TST = new TernarySearchTree("./inputs/stops.txt");
 
-        System.out.println(TST.n);
-        for(String key : TST.keysWithPrefix("HWY")){
-            System.out.println(key);
-        }
-    }
+    //     System.out.println(TST.n);
+    //     for(String key : TST.keysWithPrefix("HWY")){
+    //         System.out.println(key);
+    //     }
+    // }
 
     TernarySearchTree(String fileName) {
         int stopId;
@@ -49,7 +49,7 @@ public class TernarySearchTree {
                     System.out.println(stopId + ", " + stopName + ", " + stopDesc);
                 }
             }
-
+            scanner.close();
         } catch(Exception error) {
             System.out.println("Its broken.. : " + error.toString());
         }
