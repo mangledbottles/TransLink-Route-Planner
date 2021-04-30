@@ -4,8 +4,7 @@ import java.util.Scanner;
 public class TernarySearchTree {
     private static File file;
     private static Scanner scanner;
-    private int tstCount;
-
+    private int tstCount, n;
     private Node root;
 
     private static class Node {
@@ -13,7 +12,7 @@ public class TernarySearchTree {
         private Node left, mid, right;
         private Stop stopValue;
     }
-
+    
     // public static void main(String[] args) {
     //     TernarySearchTree TST = new TernarySearchTree("./inputs/stops.txt");
 
