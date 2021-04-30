@@ -71,7 +71,8 @@ public class userInterface {
         else if (choice == 3) {
           System.out.println("Enter your arrival time [hh:mm:ss]: ");
           String timeIn = input.nextLine();
-          findArrivalTime(timeIn);
+          String item = input.next();
+          findArrivalTime(item);
           // TODO: error check time format
         }
         else {
@@ -105,7 +106,14 @@ public class userInterface {
 
   // Implementation of findArrivalTime class
   private static void findArrivalTime(String arrivalTime) {
-    SearchArrivalTime arrTime = new SearchArrivalTime();
-    arrTime.getlist(arrivalTime);
+    SearchArrivalTime SAT = new SearchArrivalTime();
+    ArrayList<String> arrTime = SAT.parseFile(arrivalTime);
+    if (!arrTime.isEmpty()) {
+        for (int i = 0; i < arrTime.size(); i++) {
+          System.out.println(arrTime.get(i));
+        }
+      } else {
+        System.out.println("There are no trips that match your search.");
+      }
   }
 }
