@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class BusShortestPath {
 	private String stop_times;
 	private String transfers;
-	private double Matrix[][] = new double[15000][15000];
+	private double Matrix[][] = new double[20000][20000];
 
 
-
+//constructor for files
 	BusShortestPath(String stop_times, String transfers) {
 		this.stop_times = stop_times;
 		this.transfers = transfers;
@@ -93,6 +93,7 @@ public class BusShortestPath {
 //		File transfersFile = new File(transfers);
 
 
+//method to read through files and add relevant info to Matrix
 
 		while(fileScan.hasNextLine()) {
 			currentLine = fileScan.nextLine();
@@ -134,7 +135,8 @@ public class BusShortestPath {
     	double distTo[] = new double[Matrix.length];
     	int edgeTo[] = new int[Matrix.length];
 
-    	//set all but starting node to infinity
+    	//set all nodes to infinity except the starting node
+
     	for(int i = 0; i < distTo.length; i++) {
     		if(i != from)
     		{
@@ -157,7 +159,8 @@ public class BusShortestPath {
     		}
     		visited[currentNode] = 1;
 
-    		//pick node w shortest distance to relax
+    		//pick node w shortest distance
+				//relax node
     		double shortestDist = Integer.MAX_VALUE;
     		for(int i = 0; i < distTo.length; i++) {
     			if(visited[i] != 1 && shortestDist > distTo[i]) {
@@ -171,6 +174,8 @@ public class BusShortestPath {
     	if(distTo[to] == Double.POSITIVE_INFINITY) {
     		return "not existent";
     	}
+//Visualization of output
+
 
     	int x = from;
     	int y = to;
