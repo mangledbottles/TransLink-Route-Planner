@@ -6,18 +6,17 @@ public class TernarySearchTree {
     private static Scanner scanner;
     private int tstCount;
 
-    private int n;              // size
     private Node root;
 
     private static class Node {
-        private char c;                     // character
-        private Node left, mid, right;      // left, middle, and right subtries
-        private Stop val;                   // value associated with string
+        private char character;                    
+        private Node left, mid, right;
+        private Stop stopValue;
     }
+
     // public static void main(String[] args) {
     //     TernarySearchTree TST = new TernarySearchTree("./inputs/stops.txt");
 
-    //     System.out.println(TST.n);
     //     for(String key : TST.keysWithPrefix("HWY")){
     //         System.out.println(key);
     //     }
@@ -69,15 +68,15 @@ public class TernarySearchTree {
         if (key.length() == 0) throw new IllegalArgumentException("key must have length >= 1");
         Node x = get(root, key, 0);
         if (x == null) return null;
-        return x.val;
+        return x.stopValue;
     }
     
     private Node get(Node x, String key, int d) {
         if (x == null) return null;
         if (key.length() == 0) throw new IllegalArgumentException("key must have length >= 1");
         char c = key.charAt(d);
-        if      (c < x.c)              return get(x.left,  key, d);
-        else if (c > x.c)              return get(x.right, key, d);
+        if      (c < x.character)              return get(x.left,  key, d);
+        else if (c > x.character)              return get(x.right, key, d);
         else if (d < key.length() - 1) return get(x.mid,   key, d+1);
         else                           return x;
     }
@@ -96,12 +95,12 @@ public class TernarySearchTree {
         char c = key.charAt(d);
         if (x == null) {
             x = new Node();
-            x.c = c;
+            x.character = c;
         }
-        if      (c < x.c)               x.left  = put(x.left,  key, val, d);
-        else if (c > x.c)               x.right = put(x.right, key, val, d);
+        if      (c < x.character)               x.left  = put(x.left,  key, val, d);
+        else if (c > x.character)               x.right = put(x.right, key, val, d);
         else if (d < key.length() - 1)  x.mid   = put(x.mid,   key, val, d+1);
-        else                            x.val   = val;
+        else                            x.stopValue   = val;
         return x;
     }
 
@@ -113,17 +112,16 @@ public class TernarySearchTree {
         Queue<String> queue = new Queue<String>();
         Node x = get(root, prefix, 0);
         if (x == null) return queue;
-        if (x.val != null) queue.enqueue(prefix);
+        if (x.stopValue != null) queue.enqueue(prefix);
         collect(x.mid, new StringBuilder(prefix), queue);
         return queue;
     }
 
-    // all keys in subtrie rooted at x with given prefix
     private void collect(Node x, StringBuilder prefix, Queue<String> queue) {
         if (x == null) return;
         collect(x.left,  prefix, queue);
-        if (x.val != null) queue.enqueue(prefix.toString() + x.c);
-        collect(x.mid,   prefix.append(x.c), queue);
+        if (x.stopValue != null) queue.enqueue(prefix.toString() + x.character);
+        collect(x.mid,   prefix.append(x.character), queue);
         prefix.deleteCharAt(prefix.length() - 1);
         collect(x.right, prefix, queue);
     }
@@ -172,7 +170,7 @@ class Stop {
     }
 
     public String printStopSingleLine() {
-        return stopName+ " " + stopId + " " + stopDesc;
+        return stopName + " " + stopId + " " + stopDesc;
     }
     
 }
