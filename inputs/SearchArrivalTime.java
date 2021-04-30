@@ -51,7 +51,7 @@ public class SearchArrivalTime {
 	            System.out.print(e);
 	        }
 		}
-        tripIDs.sort(Comparator.comparing(Double::parseDouble));
+        //tripIDs.sort(Comparator.comparing(Double::parseDouble));
         return tripIDs;
 	}
 		
