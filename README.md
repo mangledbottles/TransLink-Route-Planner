@@ -5,17 +5,17 @@ ____________________________
 
 
 ##### Dermot O'Brien
-[x] Project & GitHub Initialisation  
-[x] Bus Stop Search Algorithm  
+- [x] Project & GitHub Initialisation  
+- [x] Bus Stop Search Algorithm  
 
 ##### Barry O'Sullivan  
-[x] Shortest Path Algorithm  
+- [x] Shortest Path Algorithm  
 
 ##### Ben Vaughan
-[x] Implementation of User Interface  
-[x] TODO.md formatting & content  
+- [x] Implementation of User Interface  
+- [x] TODO.md formatting & content  
 
 ##### David Deneher
-[x] Search by Arrival Time Function  
+- [x] Search by Arrival Time Function  
 
 
