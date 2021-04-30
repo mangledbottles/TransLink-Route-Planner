@@ -41,9 +41,8 @@ public class userInterface {
 
         // Option 1: Finding the shortest path between two bus stops //
         if (choice == 1) {
-          int stopA;
-          int stopB;
-
+          int stopA = 0;
+          int stopB = 0;
           System.out.println("Enter the first stop number: ");
           if(input.hasNextInt()) {
             stopA = input.nextInt();
@@ -51,7 +50,6 @@ public class userInterface {
           else {
             System.out.println("Invalid stop number.");
           }
-
           System.out.println("Enter the second stop number: ");
           if(input.hasNextInt()) {
             stopB = input.nextInt();
@@ -59,24 +57,21 @@ public class userInterface {
           else {
             System.out.println("Invalid stop number.");
           }
-
-          // findShortestPath(stop1, stop2, graph)
+          findShortestPath(stopA, stopB);
         }
 
         // Option 2: Finding information regarding a specific bus stop //
         else if (choice == 2) {
           System.out.println("Enter the stop name: ");
           String stopIn = input.next().toUpperCase();
-          // searchBusStops(stopIn);
+          findStopInformation(stopIn);
         }
 
         // Option 3: Finding all trips with a desired arrival time //
         else if (choice == 3) {
           System.out.println("Enter your arrival time [hh:mm:ss]: ");
           String timeIn = input.nextLine();
-
           findArrivalTime(timeIn);
-
           // TODO: error check time format
         }
         else {
@@ -87,14 +82,26 @@ public class userInterface {
     return true;
   }
 
-  // Implementation of findShortestTime class
-  private static void findShortestTime() {
-
+  // Implementation of findShortestPath class
+  private static void findShortestPath(int stopA, int stopB) {
+    BusShortestPath shortest = new BusShortestPath();
+    shortest.findShortDistance(stopA, stopB);
   }
 
   // Implementation of findStopInformation class
-  private static void findStopInformation() {
+  private static void findStopInformation(String stopName) {
+    TernarySearchTree TST = new TernarySearchTree("./inputs/stops.txt");
+    Iterable<String> validStops = TST.keysWithPrefix(stopName);
 
+    if(validStops != null) {
+        System.out.println("|NAME|\t\t\t\t\t|NUM|\t|STOP DESCRIPTION|");
+        System.out.println("--------------------------------------------------------------------------");
+        for(String key : validStops){
+            System.out.println("" + TST.get(key).printStopSingleLine());
+        }
+    } else {
+        System.out.println("No matching stops were found");
+    }
   }
 
 
