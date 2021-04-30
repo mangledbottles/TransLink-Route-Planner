@@ -94,8 +94,6 @@ public class userInterface {
     Iterable<String> validStops = TST.keysWithPrefix(stopName);
 
     if(validStops != null) {
-        System.out.println("|NAME|\t\t\t\t\t|NUM|\t|STOP DESCRIPTION|");
-        System.out.println("--------------------------------------------------------------------------");
         for(String key : validStops){
             System.out.println("" + TST.get(key).printStopSingleLine());
         }
