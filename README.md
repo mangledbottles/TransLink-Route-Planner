@@ -9,10 +9,10 @@ ____________________________
 [x] Bus Stop Search Algorithm  
 
 ##### Barry O'Sullivan  
-[x] Shortest Path Algorithm
+[x] Shortest Path Algorithm  
 
 ##### Ben Vaughan
-[x] Implementation of User Interface
+[x] Implementation of User Interface  
 [x] TODO.md formatting & content  
 
 ##### David Deneher
