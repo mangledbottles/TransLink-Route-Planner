@@ -2,13 +2,19 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class userInterface {
+
   public static final Scanner input = new Scanner(System.in);
+
   public static void main(String[] args) {
 
+    boolean isRunning = true;
+    while(isRunning) {
+      isRunning = menu();
+    }
+    System.out.println("Program quit");
   }
 
   public static boolean menu() {
-
     System.out.println("Select an option below, or enter '0' to quit the program:\n"
     + "[1] find the shortest path between two bus stops \n"
     + "[2] find information regarding a specific stop \n"
@@ -81,7 +87,18 @@ public class userInterface {
     return true;
   }
 
+  // Implementation of findShortestTime class
+  private static void findShortestTime() {
 
+  }
+
+  // Implementation of findStopInformation class
+  private static void findStopInformation() {
+
+  }
+
+
+  // Implementation of findArrivalTime class
   private static void findArrivalTime(String arrivalTime) {
     SearchArrivalTime arrTime = new SearchArrivalTime();
     arrTime.getlist(arrivalTime);
