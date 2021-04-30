@@ -41,12 +41,12 @@ public class TernarySearchTree {
                     scanner.next();
                     stopName = scanner.next();
                     stopDesc = scanner.next();
-                    scanner.nextLine();
 
                     Stop currentStop = new Stop(stopId, stopName, stopDesc);
                     put(stopName, currentStop);
 
-                    System.out.println(stopId + ", " + stopName + ", " + stopDesc);
+                    scanner.nextLine();
+                    // System.out.println(stopId + ", " + stopName + ", " + stopDesc);
                 }
             }
             scanner.close();
@@ -169,6 +169,10 @@ class Stop {
 
         this.stopId = stopId;
         this.stopDesc = stopDesc;
-
     }
+
+    public String printStopSingleLine() {
+        return stopName+ " " + stopId + " " + stopDesc;
+    }
+    
 }
